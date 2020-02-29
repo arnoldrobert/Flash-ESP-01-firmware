@@ -1,5 +1,5 @@
 # Flash-ESP-01-firmware
-ESP-01 firmware (mikroprogram) az AT parancsokra majd a MicroPython ráírása.
+ESP-01 firmware (mikroprogram) az AT parancsokra majd a MicroPython-ra.
 
 **AT parancsokhoz**
 Mindenekelőtt telepíteni kell az **esptool** alkalmazást. Mivel Python alapú alkalmazás legelőször a python.org -ról telepíteni kell a Pythont. Ezutén lehet csak telepíteni az esptool-t, aminek a részletes leírása a következő hivatkozáson érhető el: 
@@ -23,5 +23,6 @@ Manufacturer: e0
 Device: 4014
 Detected flash size: 1MB
 Hard resetting via RTS pin...**
-Ezekből a modulokból készítettek 512 KByte és 1MByte -os verziókat. Az 512 KByte-os számunkra nem kielégítő. A hardver követelményekről a MicroPython oldalán lehet informálódni: http://docs.micropython.org/en/latest/esp8266/tutorial/intro.html.
-
+Ezekből a modulokból készítettek 512 KByte és 1MByte -os verziókat. Az 512 KByte-os számunkra nem kielégítő. A hardware
+követelményekről a MicroPython oldalán lehet informálódni: http://docs.micropython.org/en/latest/esp8266/tutorial/intro.html.
+Ezek után töröljük a flash-t a következő cmd paranccsal: **esptool erase_flash** .
