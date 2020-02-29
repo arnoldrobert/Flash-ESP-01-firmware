@@ -1,6 +1,7 @@
 # Flash-ESP-01-firmware
 ESP-01 firmware (mikroprogram) az AT parancsokra majd a MicroPython-ra.
 > Az AT parancsokhoz
+
 Mindenekelőtt telepíteni kell az **esptool** alkalmazást. Mivel Python alapú alkalmazás legelőször a python.org -ról telepíteni kell a Pythont. Ezutén lehet csak telepíteni az esptool-t, aminek a részletes leírása a következő hivatkozáson érhető el: 
 https://github.com/espressif/esptool
 
