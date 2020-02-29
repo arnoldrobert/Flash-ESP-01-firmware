@@ -27,7 +27,7 @@ Device: 4014
 Detected flash size: 1MB
 Hard resetting via RTS pin...
 ```
-Ha hibát jelez akkor vagy rosszul kötötted be, esetleg nem kap megfelelő táplálást, vagy ha szerencsétlenségünkre nincs a ROM-ba a bootloder beleégetve.
+Ha hibát jelez akkor vagy rosszul van bekötve, esetleg nem kap megfelelő táplálást, vagy szerencsétlenségünkre nincs a ROM-ba beleégetve a bootloder.
 
 Ezekből a modulokból készítettek 512 KByte és 1MByte -os verziókat. Az 512 KByte-os számunkra nem kielégítő. A hardware
 követelményekről a MicroPython oldalán lehet informálódni: http://docs.micropython.org/en/latest/esp8266/tutorial/intro.html.
