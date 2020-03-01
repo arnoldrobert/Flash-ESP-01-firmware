@@ -33,5 +33,5 @@ Ezekből a modulokból készítettek 512 KByte és 1MByte -os verziókat. Az 512
 követelményekről a MicroPython oldalán lehet informálódni: http://docs.micropython.org/en/latest/esp8266/tutorial/intro.html.
 
 A filok között megtaláljátok az aktuális AT bin file-t, vagy töltsétek le innen: https://www.espressif.com/en/support/download/at .
-Ezek után töröljük a flash-t a következő cmd paranccsal: **esptool erase_flash** , majd írjuk rá a firmware-t a következő paranccsal: **esptool.py --port COM5 write_flash 0x00000 v1.3.0.2 AT Firmware.bin** . 
+Ezek után töröljük a flash-t a következő cmd paranccsal: **esptool erase_flash** . majd írjuk rá a firmware-t a következő paranccsal: **esptool.py --port COM5 --baud 74880 --no-stub write_flash -fs 1MB -fm dout 0x0 v1.3.0.2_AT_Firmware.bin** . 
 
