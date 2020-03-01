@@ -33,5 +33,29 @@ Ezekből a modulokból készítettek 512 KByte és 1MByte -os verziókat. Az 512
 követelményekről a MicroPython oldalán lehet informálódni: http://docs.micropython.org/en/latest/esp8266/tutorial/intro.html.
 
 A filok között megtaláljátok az aktuális AT bin file-t, vagy töltsétek le innen: https://www.espressif.com/en/support/download/at .
-Ezek után töröljük a flash-t a következő cmd paranccsal: **esptool erase_flash** . majd írjuk rá a firmware-t a következő paranccsal: **esptool.py --port COM5 --baud 74880 --no-stub write_flash -fs 1MB -fm dout 0x0 v1.3.0.2_AT_Firmware.bin** . 
+Ezek után töröljük a flash-t a következő paranccsal: **esptool erase_flash** . Mielőtt ráírnánk az AT mikroprogramot én azt ajánlom, hogy nyissuk meg az Arduino-t és egy üres oldalon válasszuk ki a portunkat, majd nyissuk meg a soros ablakot. Próbálgassuk a különböző kommunikációs sebességeknél(baud), hogy olvasható szöveget kapjunk. A következő képpen végezzük: beállítjuk pl. 115200 -ra majd le- és visszacsatlakoztatjuk a EN(CH_PD) lábat, amikor táplálást kap ki kell, hogy írjon olvashatóan egy szöveget a bootolással kapcsolatban. Nálam ennél a modulnál 74880 bps, ami egy nem megszokott sebesség(oco kínai). Azért kell ezt megnézni, mert ettől nem tehetjük nagyobb sebességre az esptoo.py-t ha írjuk rá a firmware-t. A prompt()-ban lépjünk abba a mappába ahova letöltöttük a v1.3.0.2_AT_Firmware.bin -t, majd a következő paranccsal írjuk a flash-re(nálam az USB to serial a COM5 porton van): **esptool.py --port COM5 --baud 74880 --no-stub write_flash -fs 1MB -fm dout 0x0 v1.3.0.2_AT_Firmware.bin** . 
 
+Ezt kell, hogy kiírja:
+```
+C:\Users\petof\Documents\ESP8266>esptool.py --port COM5 --baud 74880 --no-stub write_flash -fs 1MB -fm dout 0x0 v1.3.0.2_AT_Firmware.bin
+esptool.py v3.0-dev
+Serial port COM5
+Connecting....
+Detecting chip type... ESP8266
+Chip is ESP8266EX
+Features: WiFi
+Crystal is 26MHz
+MAC: bc:dd:c2:ed:a9:87
+Enabling default SPI flash mode...
+Configuring flash size...
+Erasing flash...
+Flash params set to 0x0320
+Took 0.47s to erase flash block
+Wrote 1044480 bytes at 0x00000000 in 220.6 seconds (37.9 kbit/s)...
+
+Leaving...
+Hard resetting via RTS pin...
+
+C:\Users\petof\Documents\ESP8266>
+```
+Ezután kapcsoljuk ki-be a modult majd csatlakoztassuk le a GPIO0-t a GND(-)-ról.
