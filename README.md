@@ -58,4 +58,14 @@ Hard resetting via RTS pin...
 
 C:\Users\petof\Documents\ESP8266>
 ```
-Ezután kapcsoljuk ki-be a modult majd csatlakoztassuk le a GPIO0-t a GND(-)-ról.
+Ezután kapcsoljuk ki-be a modult majd csatlakoztassuk le a GPIO0-t a GND(-)-ról. Az AT parancsokat bevihetjük az Arduino soros monitorjában vagy akár a PuTTy-ba. Nyissuk meg a PuTTY-t, tegyük soros kommunikációra, állítsuk be a portot meg a sebességet és nyissuk meg a soros kommunikációt. Írjuk be a következőt: AT+GMR nyomjunk egy enter-t majd ctrl+J. A következőt kell, hogy kiírja:
+```
+AT+GMR
+AT version:0.40.0.0(Aug  8 2015 14:45:58)
+SDK version:1.3.0
+Ai-Thinker Technology Co.,Ltd.
+Build:1.3.0.2 Sep 11 2015 11:48:04
+OK
+```
+> A MicroPython parancsokhoz
+Csatlakoztassuk vissza a GPIO0-t a GND(-)-ra töröljük a flash-t a korábban leírtak szerint és írjuk rá az aktuális MicroPython bin file-t amit a következő oldalról lehet elérni: http://micropython.org/download#esp8266 . Ha sikerült csatlakoztassuk le a GPIO0-t a GND(-)-ról és használhatjuk ismét a PuTTy-t a MicroPython-hoz.
