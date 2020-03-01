@@ -58,6 +58,7 @@ Hard resetting via RTS pin...
 C:\Users\petof\Documents\ESP8266>
 ```
 ***Soros kommunikáció a modullal***
+
 Ezután kapcsoljuk ki-be a modult majd csatlakoztassuk le a GPIO0-t a GND(-)-ról. Az AT parancsokat bevihetjük az Arduino soros monitorjában vagy akár a PuTTy-ba. Nyissuk meg a PuTTY-t, tegyük soros kommunikációra, állítsuk be a portot meg a sebességet 115200-ra, és nyissuk meg a soros kommunikációt. Írjuk be a következőt: AT+GMR nyomjunk egy enter-t majd ctrl+J. A következőt kell, hogy kiírja:
 ```
 AT+GMR
