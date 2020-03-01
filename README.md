@@ -5,7 +5,7 @@ ESP-01 firmware(mikroprogram) az AT parancsokra majd a MicroPython-ra.
 Mindenekelőtt telepíteni kell az **esptool** alkalmazást. Mivel Python alapú, legelőször a python.org -ról telepíteni kell a Pythont. Telepítéskor engedélyezni kell a patch hozzáférést. Ezutén lehet csak telepíteni az esptool-t, aminek a részletes leírása a következő hivatkozáson érhető el: https://github.com/espressif/esptool .
 
 Az ESP-t flash módba kell kötni. Ezt bármilyen UART soros kommunikációt támogató eszközzel megtehetjük. A file-ok között megtalálod az usb to serial bekötésére: esp_flash_mode.jpg-t, és az Arduino bekötésre: esp_arduino_flash_mode.png-t.
-A gyártók legtöbbször a legújabb mikroprogrammal forgalmazzák az esp-t. Az esptool segítségével kiolvashatjuk mi van rajta. Nyissuk meg a parancssort(cmd) és írjuk a következő parancsot: **esptool flash_id**.
+ Az esptool segítségével kiolvashatjuk mi van rajta. Nyissuk meg a parancssort(cmd) és írjuk a következő parancsot: **esptool flash_id**.
 
 Valami ehhez hasonlót kell, hogy kiírjon:
 ```
@@ -26,7 +26,7 @@ Device: 4014
 Detected flash size: 1MB
 Hard resetting via RTS pin...
 ```
-Ha hibát jelez akkor vagy rosszul van bekötve, esetleg nem kap megfelelő táplálást(legalább 500 mA-es táplálást kell biztosítani ), vagy szerencsétlenségünkre nincs a ROM-ba beleégetve a bootloder(vagyis nem tud kommunikálni a soros porton. Ha ilyen gond merül fel, akkor ugyan azon a hivatkozáson ahonnan letöltöttük az esptool.py-t).
+Ha hibát jelez akkor vagy rosszul van bekötve, esetleg nem kap megfelelő táplálást(szomjas jószág, legalább 500 mA-os táplálást kell neki biztosítani, 1,65 W a 3,3 V-on ), vagy szerencsétlenségünkre nincs a ROM-ba beleégetve a bootloder(vagyis nem tud kommunikálni a soros porton. Ha ilyen gond merül fel, akkor ugyan azon az oldalon ahonnan letöltöttük az esptool.py-t találhatunk erre is leírást). Minden prompt() parancs előtt csatlakoztassuk le és fel(reset-eljük) a modult és próbáljuk újra.
 
 Ezekből a modulokból készítettek 512 KByte és 1MByte -os verziókat. Az 512 KByte-os számunkra nem kielégítő. A hardware
 követelményekről a MicroPython oldalán lehet informálódni: http://docs.micropython.org/en/latest/esp8266/tutorial/intro.html.
@@ -57,7 +57,8 @@ Hard resetting via RTS pin...
 
 C:\Users\petof\Documents\ESP8266>
 ```
-Ezután kapcsoljuk ki-be a modult majd csatlakoztassuk le a GPIO0-t a GND(-)-ról. Az AT parancsokat bevihetjük az Arduino soros monitorjában vagy akár a PuTTy-ba. Nyissuk meg a PuTTY-t, tegyük soros kommunikációra, állítsuk be a portot meg a sebességet és nyissuk meg a soros kommunikációt. Írjuk be a következőt: AT+GMR nyomjunk egy enter-t majd ctrl+J. A következőt kell, hogy kiírja:
+***Soros kommunikáció a modullal***
+Ezután kapcsoljuk ki-be a modult majd csatlakoztassuk le a GPIO0-t a GND(-)-ról. Az AT parancsokat bevihetjük az Arduino soros monitorjában vagy akár a PuTTy-ba. Nyissuk meg a PuTTY-t, tegyük soros kommunikációra, állítsuk be a portot meg a sebességet 115200-ra, és nyissuk meg a soros kommunikációt. Írjuk be a következőt: AT+GMR nyomjunk egy enter-t majd ctrl+J. A következőt kell, hogy kiírja:
 ```
 AT+GMR
 AT version:0.40.0.0(Aug  8 2015 14:45:58)
@@ -67,10 +68,10 @@ Build:1.3.0.2 Sep 11 2015 11:48:04
 OK
 ```
 > A MicroPython parancsokhoz
-Csatlakoztassuk vissza a GPIO0-t a GND(-)-ra töröljük a flash-t a korábban leírtak szerint és írjuk rá az aktuális MicroPython bin file-t amit a következő oldalról lehet elérni: http://micropython.org/download#esp8266 . Ha sikerült csatlakoztassuk le a GPIO0-t a GND(-)-ról és használhatjuk ismét a PuTTy-t a MicroPython-hoz. Amikor megnyílik a PuTTy nyomjunk egy entert, hogy megjelenjen a és írhatjuk a MicroPython parancsokat :).
+Csatlakoztassuk vissza a GPIO0-t a GND(-)-ra töröljük a flash-t a korábban leírtak szerint és írjuk rá az aktuális MicroPython bin file-t amit a következő oldalról lehet elérni: http://micropython.org/download#esp8266 . Ha sikerült csatlakoztassuk le a GPIO0-t a GND(-)-ról és használhatjuk ismét a PuTTy-t a MicroPython-hoz. Amikor megnyílik a PuTTy nyomjunk egy entert, hogy megjelenjen a parancsértelmező és írhatjuk a MicroPython parancsokat :).
 ```
 >>> print('Lazithatsz ha ezt latod: SIKERULT BEFLASHELNED ":)"')
 Lazithatsz ha ezt latod: SIKERULT BEFLASHELNED ":)"
 >>>
 ```
-Remélem, hogy az ESP8266 modul firmware írésa azok számára is érthető lesz akik kevésbé járatossak ezekben a modulokban.
+Remélem, hogy az ESP8266 modul firmware ráírésa azok számára is érthető lesz, akik kevésbé járatossak ezekben a modulokban.
