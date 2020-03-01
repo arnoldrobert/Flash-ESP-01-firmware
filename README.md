@@ -68,4 +68,10 @@ Build:1.3.0.2 Sep 11 2015 11:48:04
 OK
 ```
 > A MicroPython parancsokhoz
-Csatlakoztassuk vissza a GPIO0-t a GND(-)-ra töröljük a flash-t a korábban leírtak szerint és írjuk rá az aktuális MicroPython bin file-t amit a következő oldalról lehet elérni: http://micropython.org/download#esp8266 . Ha sikerült csatlakoztassuk le a GPIO0-t a GND(-)-ról és használhatjuk ismét a PuTTy-t a MicroPython-hoz.
+Csatlakoztassuk vissza a GPIO0-t a GND(-)-ra töröljük a flash-t a korábban leírtak szerint és írjuk rá az aktuális MicroPython bin file-t amit a következő oldalról lehet elérni: http://micropython.org/download#esp8266 . Ha sikerült csatlakoztassuk le a GPIO0-t a GND(-)-ról és használhatjuk ismét a PuTTy-t a MicroPython-hoz. Amikor megnyílik a PuTTy nyomjunk egy entert, hogy megjelenjen a és írhatjuk a MicroPython parancsokat :).
+```
+>>> print('Lazithatsz ha ezt latod: SIKERULT BEFLASHELNED ":)"')
+Lazithatsz ha ezt latod: SIKERULT BEFLASHELNED ":)"
+>>>
+```
+Remélem, hogy az ESP8266 modul firmware írésa azok számára is érthető lesz akik kevésbé járatossak ezekben a modulokban.
