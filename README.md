@@ -68,6 +68,7 @@ Ai-Thinker Technology Co.,Ltd.
 Build:1.3.0.2 Sep 11 2015 11:48:04
 OK
 ```
+Az AT parancsok a következő hivatkozáson érhetők el: https://www.espressif.com/sites/default/files/documentation/4a-esp8266_at_instruction_set_en.pdf .
 > A MicroPython parancsokhoz
 
 Csatlakoztassuk vissza a GPIO0-t a GND(-)-ra és töröljük a flash-t a korábban leírtak szerint, utána írjuk rá az aktuális MicroPython bin file-t, amit a következő oldalról lehet elérni: http://micropython.org/download#esp8266 . Ha sikerült csatlakoztassuk le a GPIO0-t a GND(-)-ról és használhatjuk ismét a PuTTy-t a MicroPython-hoz. Amikor megnyílik a PuTTy nyomjunk egy entert, hogy megjelenjen a parancsértelmező és írhatjuk a MicroPython parancsokat :).
