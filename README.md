@@ -36,7 +36,7 @@ Ezek után töröljük a flash-t a következő paranccsal: **esptool.py erase_fl
 
 Ezt kell, hogy kiírja:
 ```
-C:\Users\petof\Documents\ESP8266>esptool.py --port COM5 --baud 74880 --no-stub write_flash -fs 1MB -fm dout 0x0 v1.3.0.2_AT_Firmware.bin
+C:\Users\petof\Documents\ESP8266>esptool.py --port COM5 --baud 74880 --no-stub write_flash -fs 1MB -fm qio 0x0 v1.3.0.2_AT_Firmware.bin
 esptool.py v3.0-dev
 Serial port COM5
 Connecting....
