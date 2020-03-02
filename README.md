@@ -2,7 +2,7 @@
 ESP-01 firmware(mikroprogram) az AT parancsokra majd a MicroPython-ra.
 > Az AT parancsokhoz
 
-Mindenekelőtt telepíteni kell az **esptool** alkalmazást. Mivel Python alapú, legelőször a https://python.org -ról letöltjük a Pythont. Telepítéskor engedélyezni kell a patch hozzáférést. Ezután lehet csak telepíteni az esptool-t, aminek a részletes leírása a következő hivatkozáson érhető el: https://github.com/espressif/esptool .
+Mindenekelőtt telepíteni kell az **esptool** alkalmazást. Mivel Python alapú, legelőször a https://www.python.org -ról letöltjük a Pythont. Telepítéskor engedélyezni kell a patch hozzáférést. Ezután lehet csak telepíteni az esptool-t, aminek a részletes leírása a következő hivatkozáson érhető el: https://github.com/espressif/esptool .
 
 Az ESP-t flash módba kell kötni. Ezt bármilyen UART soros kommunikációt támogató eszközzel megtehetjük. A file-ok között megtalálod az usb to serial bekötésére: esp_flash_mode.jpg-t, és az Arduino bekötésre: esp_arduino_flash_mode.png-t.
  Az esptool segítségével kiolvashatjuk mi van rajta. Nyissuk meg a parancssort(cmd) és írjuk a következő parancsot: **esptool.py flash_id**.
