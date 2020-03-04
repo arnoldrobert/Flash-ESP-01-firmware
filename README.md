@@ -78,3 +78,4 @@ Lazithatsz ha ezt latod: SIKERULT BEFLASHELNED ":)"
 >>>
 ```
 Remélem, hogy az ESP8266 modul firmware ráírása azok számára is érthető lesz, akik kevésbé járatosak ezekben a modulokban.
+Az esptool.com-on kívül ajánlom még az **Adafruit ampy-t** amit a következő hivatkozáson érhető el: https://github.com/scientifichackers/ampy .
