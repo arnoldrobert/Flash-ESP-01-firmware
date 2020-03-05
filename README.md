@@ -28,7 +28,7 @@ Hard resetting via RTS pin...
 ```
 Ha hibát jelez akkor vagy rosszul van bekötve, esetleg nem kap megfelelő táplálást (szomjas jószág, legalább 500 mA-os táplálást kell neki biztosítani, 1,65 W a 3,3 V-on ), vagy szerencsétlenségünkre nincs a ROM-ba beleégetve a bootloader (vagyis nem tud kommunikálni a soros porton. Ha ilyen gond merül fel, akkor ugyanazon az oldalon ahonnan letöltöttük az esptool.py-t találhatunk erre is leírást). Minden prompt() parancs előtt csatlakoztassuk le és fel (reseteljük) a modult és próbáljuk újra.
 
-Sz ESP-01 modulokból készítettek 512 KByte és 1MByte -os verziókat. Az 512 KByte-os számunkra nem kielégítő. A hardware
+Az ESP-01 modulokból készítettek 512 KByte és 1MByte -os verziókat. Az 512 KByte-os számunkra nem kielégítő. A hardware
 követelményekről a MicroPython oldalán lehet informálódni: http://docs.micropython.org/en/latest/esp8266/tutorial/intro.html.
 
 A file-ok között megtaláljátok az aktuális AT bin file-t, vagy töltsétek le innen: https://www.espressif.com/en/support/download/at .
