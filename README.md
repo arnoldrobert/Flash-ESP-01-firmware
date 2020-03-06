@@ -78,4 +78,4 @@ Lazíthatsz, ha ezt látod SIKERULT ":)"
 >>>
 ```
 Remélem, hogy az ESP8266 modul firmware ráírása azok számára is érthető lesz, akik kevésbé járatosak ezekben a modulokban.
-Az esptool.com-on kívül ajánlom még az **Adafruit ampy-t** ami a következő hivatkozáson érhető el: https://github.com/scientifichackers/ampy .
+Az esptool.py-on kívül ajánlom még az **Adafruit ampy-t** ami a következő hivatkozáson érhető el: https://github.com/scientifichackers/ampy .
