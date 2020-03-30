@@ -4,7 +4,7 @@ ESP-01 firmware(mikroprogram) az AT parancsokra majd a MicroPython-ra.
 
 Mindenekelőtt telepíteni kell az **esptool.py** alkalmazást. Mivel Python alapú, legelőször a https://www.python.org -ról letöltjük a Pythont. Telepítéskor engedélyezni kell a path hozzáférést. Ezután lehet csak telepíteni az esptool.py-t, aminek a részletes leírása a következő hivatkozáson érhető el: https://github.com/espressif/esptool .
 
-Az ESP-t flash módba kell kötni. Ezt bármilyen UART soros kommunikációt támogató eszközzel megtehetjük. A file-ok között megtalálod az USB to TTL UART modul bekötésére: **esp_flash_mode.jpg**-t, és az Arduino bekötésre: **esp_arduino_flash_mode.png**-t. Az esptool segítségével kiolvashatjuk mi van rajta. Nyissuk meg a parancssort(cmd) és írjuk a következő parancsot: **"esptool.py flash_id"** .
+Az ESP-t flash módba kell kötni. Ezt bármilyen UART soros kommunikációt támogató eszközzel megtehetjük. A fájlok között megtalálod az USB to TTL UART modul bekötésére: **esp_flash_mode.jpg**-t, és az Arduino bekötésre: **esp_arduino_flash_mode.png**-t. Az esptool segítségével kiolvashatjuk mi van rajta. Nyissuk meg a parancssort(cmd) és írjuk a következő parancsot: **"esptool.py flash_id"** .
 
 Valami ehhez hasonlót kell, hogy kiírjon:
 ```
@@ -30,8 +30,8 @@ Ha hibát jelez akkor vagy rosszul van bekötve, esetleg nem kap megfelelő táp
 Az ESP-01 modulokból készítettek 512 KByte és 1MByte -os verziókat. Az 512 KByte-os számunkra nem kielégítő. A hardware
 követelményekről a MicroPython oldalán lehet informálódni: http://docs.micropython.org/en/latest/esp8266/tutorial/intro.html.
 
-A file-ok között megtaláljátok az aktuális AT bin file-t, vagy töltsétek le innen: https://www.espressif.com/en/support/download/at .
-Ezek után töröljük a flash-t a következő paranccsal: **esptool.py erase_flash** . Mielőtt ráírnánk az AT mikroprogramot én azt ajánlom, hogy nyissuk meg az Arduino IDE-t és egy üres oldalon válasszuk ki a portunkat, majd nyissuk meg a soros ablakot. Próbálgassuk a különböző kommunikációs sebességeknél (baud), hogy olvasható szöveget kapjunk. A következő képpen végezzük: beállítjuk pl. 115200 -ra majd le- és visszacsatlakoztatjuk a EN (CH_PD) lábat, amikor táplálást kap ki kell, hogy írjon olvashatóan egy szöveget a bootolással kapcsolatban. Nálam ennél a modulnál 74880 bps, ami egy nem megszokott sebesség (oco kínai). Azért kell ezt megnézni, mert ettől nem tehetjük nagyobb sebességre az esptoo.py-t ha írjuk rá a firmware-t. A prompt()-ban lépjünk abba a mappába ahova letöltöttük a v1.3.0.2_AT_Firmware.bin -t, majd a következő paranccsal írjuk a flash-re (nálam az USB to serial a COM5 porton van): **"esptool.py --port COM5 --baud 74880 --no-stub write_flash -fs 1MB -fm qio 0x0 v1.3.0.2_AT_Firmware.bin"** . 
+A fájlok között megtaláljátok az aktuális AT bin fájlt, vagy töltsétek le innen: https://www.espressif.com/en/support/download/at .
+Ezek után töröljük a flash-t a következő paranccsal: **esptool.py erase_flash** . Mielőtt ráírnánk az AT mikroprogramot én azt ajánlom, hogy nyissuk meg az Arduino IDE-t és egy üres oldalon válasszuk ki a portunkat, majd nyissuk meg a soros ablakot. Próbálgasd a különböző kommunikációs sebességeknél (baud), hogy olvasható szöveget kapjunk. A következőképpen végezzük: beállítjuk pl. 115200 -ra majd le- és vissza csatlakoztatjuk a EN (CH_PD) lábat, amikor táplálást kap ki kell, hogy írjon olvashatóan egy szöveget a bootolással kapcsolatban. Nálam ennél a modulnál 74880 bps, ami egy nem megszokott sebesség (oco kínai). Azért kell ezt megnézni, mert ettől nem tehetjük nagyobb sebességre az esptool.py-t ha írjuk rá a firmware-t. A prompt()-ban lépjünk abba a mappába ahova letöltöttük a v1.3.0.2_AT_Firmware.bin -t, majd a következő paranccsal írjuk a flash-re (nálam az USB to serial a COM5 porton van): **"esptool.py --port COM5 --baud 74880 --no-stub write_flash -fs 1MB -fm qio 0x0 v1.3.0.2_AT_Firmware.bin"** . 
 
 Valami ehhez hasonlót kell, hogy kiírjon:
 ```
@@ -76,5 +76,5 @@ Csatlakoztassuk vissza a GPIO0-t a GND(-)-ra és töröljük a flash-t a korább
 Lazíthatsz, ha ezt látod SIKERULT ":)"
 >>>
 ```
-Remélem, hogy az ESP8266 modul firmware ráírása azok számára is érthető lesz, akik kevésbé járatosak ezekben a modulokban.
+Remélem, hogy az ESP8266 modul firmware ráírása azok számára is érthető lesz, akik kevésbé jártasak ezekben a modulokban.
 Az esptool.py-on kívül ajánlom még az **Adafruit ampy-t** ami a következő hivatkozáson érhető el: https://github.com/scientifichackers/ampy .
